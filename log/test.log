@@ -1,0 +1,48 @@
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.0ms)[0m  DROP TABLE `uploads`
+  [1m[36mSQL (90.8ms)[0m  [1mCREATE TABLE `uploads` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `uploaded_file_name` varchar(255), `uploaded_content_type` varchar(255), `uploaded_file_size` int(11), `uploaded_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:01:27 +0500 2011
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `uploads`[0m
+  [1m[35mSQL (0.2ms)[0m  ROLLBACK
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  ROLLBACK
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  ROLLBACK
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:01:27 +0500 2011
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `uploads`
+  [1m[36mSQL (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+
+
+Started GET "/" for 127.0.0.1 at Sun Jan 30 00:09:03 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[35mSQL (17.2ms)[0m  SHOW TABLES
+  [1m[36mUpload Load (13.3ms)[0m  [1mSELECT `uploads`.* FROM `uploads`[0m
+Rendered uploads/_index.html.erb (1.1ms)
+Rendered uploads/index.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 107ms (Views: 42.5ms | ActiveRecord: 30.6ms)
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `uploads`
+  [1m[36mSQL (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+
+
+Started GET "/" for 127.0.0.1 at Sun Jan 30 00:09:03 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mUpload Load (0.3ms)[0m  [1mSELECT `uploads`.* FROM `uploads`[0m
+Rendered uploads/_index.html.erb (0.5ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 1.2ms)
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `uploads`
+  [1m[36mSQL (0.1ms)[0m  [1mROLLBACK[0m

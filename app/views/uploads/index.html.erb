@@ -1,0 +1,7 @@
+<% title "Uploads" %>
+<%= render :partial => "index" %>
+
+<h3>Upload a Photo</h3> 
+<%= form_for Upload.new, :html => {:multipart => true} do |f| %> 
+<p><%= f.file_field :photo %> </p>
+<% end %>

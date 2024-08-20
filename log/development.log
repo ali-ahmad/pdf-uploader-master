@@ -1,0 +1,554 @@
+  [1m[36mSQL (0.8ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (113.0ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (202.6ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUploads (20110125180903)
+  [1m[35mSQL (119.0ms)[0m  CREATE TABLE `uploads` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `uploaded_file_name` varchar(255), `uploaded_content_type` varchar(255), `uploaded_file_size` int(11), `uploaded_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (1.1ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20110125180903')
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.8ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.5ms)[0m  describe `uploads`
+  [1m[36mSQL (1.7ms)[0m  [1mSHOW KEYS FROM `uploads`[0m
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:02:53 +0500 2011
+
+ActionController::RoutingError (No route matches "/"):
+  
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:03:57 +0500 2011
+
+LoadError (Expected /users/usmanasif/projects/pdf_uploader/app/controllers/uploads_controller.rb to define UploadsController):
+  
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:16:22 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUpload Load (0.2ms)[0m  SELECT `uploads`.* FROM `uploads`
+Rendered uploads/index.html.erb within layouts/application (10.2ms)
+Completed   in 64ms
+
+ActionView::Template::Error (undefined method `title' for #<#<Class:0x10360ac80>:0x1036084f8>):
+    1: <% title "Uploads" %>
+    2: 
+    3: <table>
+    4:   <tr>
+  app/views/uploads/index.html.erb:1:in `_app_views_uploads_index_html_erb__447965383_2175807420_0'
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.9ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:17:23 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mUpload Load (0.3ms)[0m  [1mSELECT `uploads`.* FROM `uploads`[0m
+Rendered uploads/index.html.erb within layouts/application (67.6ms)
+Completed 200 OK in 86ms (Views: 73.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/uploads/new" for 127.0.0.1 at Wed Jan 26 01:17:34 +0500 2011
+  Processing by UploadsController#new as HTML
+Rendered uploads/_form.html.erb (13.7ms)
+Rendered uploads/new.html.erb within layouts/application (16.6ms)
+Completed   in 32ms
+
+ActionView::Template::Error (undefined method `name_before_type_cast' for #<Upload:0x1037a50e0>):
+    2:   <%= f.error_messages %>
+    3:   <p>
+    4:     <%= f.label :name %><br />
+    5:     <%= f.text_field :name %>
+    6:   </p>
+    7:   <p><%= f.submit %></p>
+    8: <% end %>
+  app/views/uploads/_form.html.erb:5:in `_app_views_uploads__form_html_erb__1727540795_2176625220_992350'
+  app/views/uploads/_form.html.erb:1:in `_app_views_uploads__form_html_erb__1727540795_2176625220_992350'
+  app/views/uploads/new.html.erb:3:in `_app_views_uploads_new_html_erb__2101483965_2176635200_0'
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.3ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:42:25 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mSQL (3.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUpload Load (0.2ms)[0m  SELECT `uploads`.* FROM `uploads`
+Rendered uploads/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 61ms (Views: 18.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:46:36 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mUpload Load (0.3ms)[0m  [1mSELECT `uploads`.* FROM `uploads`[0m
+Rendered uploads/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 24ms (Views: 13.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:46:47 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[35mUpload Load (0.3ms)[0m  SELECT `uploads`.* FROM `uploads`
+Rendered uploads/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 30ms (Views: 19.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:46:59 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mUpload Load (0.3ms)[0m  [1mSELECT `uploads`.* FROM `uploads`[0m
+Rendered uploads/index.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 34ms (Views: 25.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:50:32 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[35mUpload Load (0.3ms)[0m  SELECT `uploads`.* FROM `uploads`
+Rendered uploads/_index.html.erb (5.5ms)
+Rendered uploads/index.html.erb within layouts/application (7.5ms)
+Completed   in 22ms
+
+ActionView::Template::Error (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+    22: 	        '_method': 'post',
+    23: 	        '<%= session_key %>' : encodeURIComponent('<%= u cookies[session_key] %>'),
+    24: 	        'authenticity_token': encodeURIComponent('<%= u form_authenticity_token %>'),
+    25: 					'user_id' : '<%= @user.id %>'
+    26: 	      }
+    27: 	});
+    28: 	
+  app/views/uploads/_index.html.erb:25:in `_app_views_uploads__index_html_erb___1141472797_2177139300_90910'
+  app/views/uploads/index.html.erb:2:in `_app_views_uploads_index_html_erb__447965383_2177155540_0'
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:51:18 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mUpload Load (0.3ms)[0m  [1mSELECT `uploads`.* FROM `uploads`[0m
+Rendered uploads/_index.html.erb (1.1ms)
+Rendered uploads/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 25ms (Views: 16.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/uploadify/uploadify.swf" for 127.0.0.1 at Wed Jan 26 01:51:19 +0500 2011
+
+ActionController::RoutingError (No route matches "/uploadify/uploadify.swf"):
+  
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:51:26 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[35mUpload Load (0.3ms)[0m  SELECT `uploads`.* FROM `uploads`
+Rendered uploads/_index.html.erb (1.0ms)
+Rendered uploads/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 93ms (Views: 84.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/uploadify/uploadify.swf" for 127.0.0.1 at Wed Jan 26 01:51:27 +0500 2011
+
+ActionController::RoutingError (No route matches "/uploadify/uploadify.swf"):
+  
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:51:38 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mUpload Load (0.3ms)[0m  [1mSELECT `uploads`.* FROM `uploads`[0m
+Rendered uploads/_index.html.erb (1.0ms)
+Rendered uploads/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 28ms (Views: 17.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/uploadify/uploadify.swf" for 127.0.0.1 at Wed Jan 26 01:51:39 +0500 2011
+
+ActionController::RoutingError (No route matches "/uploadify/uploadify.swf"):
+  
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:51:58 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUpload Load (0.2ms)[0m  SELECT `uploads`.* FROM `uploads`
+Rendered uploads/_index.html.erb (1.0ms)
+Rendered uploads/index.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 65ms (Views: 20.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/uploadify/uploadify.swf" for 127.0.0.1 at Wed Jan 26 01:51:59 +0500 2011
+
+ActionController::RoutingError (No route matches "/uploadify/uploadify.swf"):
+  
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:54:22 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUpload Load (0.2ms)[0m  SELECT `uploads`.* FROM `uploads`
+Rendered uploads/_index.html.erb (1.0ms)
+Rendered uploads/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 59ms (Views: 19.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at Wed Jan 26 01:54:27 +0500 2011
+
+AbstractController::ActionNotFound (The action 'create' could not be found for UploadsController):
+  
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/unknown_action.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:56:49 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUpload Load (0.2ms)[0m  SELECT `uploads`.* FROM `uploads`
+Rendered uploads/_index.html.erb (1.7ms)
+Rendered uploads/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 67ms (Views: 18.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 01:57:27 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mUpload Load (0.3ms)[0m  [1mSELECT `uploads`.* FROM `uploads`[0m
+Rendered uploads/_index.html.erb (1.1ms)
+Rendered uploads/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 92ms (Views: 19.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at Wed Jan 26 01:57:37 +0500 2011
+  Processing by UploadsController#create as JSON
+  Parameters: {"_http_accept"=>"application/javascript", "Filename"=>"About Stacks.pdf", "folder"=>"/", "authenticity_token"=>"56zlhhNj0dLyEmmshr4e/fLCT7uL7ed5oTen5pY3f/o=", "Upload"=>"Submit Query", "_pdf_uploader_session"=>"BAh7ByIQX2NzcmZfdG9rZW4iMTU2emxoaE5qMGRMeUVtbXNocjRlL2ZMQ1Q3dUw3ZWQ1b1RlbjVwWTNmL289Ig9zZXNzaW9uX2lkIiVlMGJjZmNjMzgyNzFmZDkwMzAyZGVkNzczY2M4NzZlYg==--a32e2bbb27bbf8d4285834b5600f8b7726ac1389", "Filedata"=>#<File:/var/folders/VQ/VQlhDSakF8CxpD6koEI3P++++TI/-Tmp-/RackMultipart20110126-8693-1h8ga1g-0>}
+Completed   in 0ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.7ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (22.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 02:02:14 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[35mUpload Load (0.3ms)[0m  SELECT `uploads`.* FROM `uploads`
+Rendered uploads/_index.html.erb (1.5ms)
+Rendered uploads/index.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 30ms (Views: 20.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at Wed Jan 26 02:02:20 +0500 2011
+  Processing by UploadsController#create as JSON
+  Parameters: {"_http_accept"=>"application/javascript", "Filename"=>"About Stacks.pdf", "folder"=>"/", "Upload"=>"Submit Query", "Filedata"=>#<File:/var/folders/VQ/VQlhDSakF8CxpD6koEI3P++++TI/-Tmp-/RackMultipart20110126-8693-1r008b4-0>}
+Completed   in 0ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (68.8ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (75.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 02:02:48 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUpload Load (0.3ms)[0m  SELECT `uploads`.* FROM `uploads`
+Rendered uploads/_index.html.erb (0.8ms)
+Rendered uploads/index.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 69ms (Views: 23.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at Wed Jan 26 02:02:54 +0500 2011
+  Processing by UploadsController#create as JSON
+  Parameters: {"_http_accept"=>"application/javascript", "Filename"=>"About Stacks.pdf", "folder"=>"/", "Upload"=>"Submit Query", "Filedata"=>#<File:/var/folders/VQ/VQlhDSakF8CxpD6koEI3P++++TI/-Tmp-/RackMultipart20110126-8713-16t5x3c-0>}
+Completed   in 0ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.9ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 02:03:34 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mSQL (2.0ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUpload Load (0.2ms)[0m  SELECT `uploads`.* FROM `uploads`
+Rendered uploads/_index.html.erb (3.1ms)
+Rendered uploads/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 63ms (Views: 20.3ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at Wed Jan 26 02:03:40 +0500 2011
+  Processing by UploadsController#create as JSON
+  Parameters: {"_http_accept"=>"application/javascript", "Filename"=>"About Stacks.pdf", "folder"=>"/", "Upload"=>"Submit Query", "Filedata"=>#<File:/var/folders/VQ/VQlhDSakF8CxpD6koEI3P++++TI/-Tmp-/RackMultipart20110126-8720-1j35xyo-0>}
+  [1m[36mSQL (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  ROLLBACK
+Completed   in 27ms
+
+ActionView::MissingTemplate (Missing template uploads/new with {:handlers=>[:builder, :rxml, :rjs, :rhtml, :erb], :locale=>[:en, :en], :formats=>[:json]} in view paths "/users/usmanasif/projects/pdf_uploader/app/views"):
+  app/controllers/uploads_controller.rb:18:in `create'
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 02:04:41 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mUpload Load (0.3ms)[0m  [1mSELECT `uploads`.* FROM `uploads`[0m
+Rendered uploads/_index.html.erb (0.8ms)
+Rendered uploads/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 25ms (Views: 15.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at Wed Jan 26 02:04:45 +0500 2011
+  Processing by UploadsController#create as JSON
+  Parameters: {"_http_accept"=>"application/javascript", "Filename"=>"About Stacks.pdf", "folder"=>"/", "Upload"=>"Submit Query", "Filedata"=>#<File:/var/folders/VQ/VQlhDSakF8CxpD6koEI3P++++TI/-Tmp-/RackMultipart20110126-8720-1s7teqf-0>}
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mROLLBACK[0m
+Completed   in 19ms
+
+ActionView::MissingTemplate (Missing template uploads/index with {:handlers=>[:builder, :rxml, :rjs, :rhtml, :erb], :locale=>[:en, :en], :formats=>[:json]} in view paths "/users/usmanasif/projects/pdf_uploader/app/views"):
+  app/controllers/uploads_controller.rb:18:in `create'
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 02:06:22 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mUpload Load (0.2ms)[0m  SELECT `uploads`.* FROM `uploads`
+Rendered uploads/_index.html.erb (1.6ms)
+Rendered uploads/index.html.erb within layouts/application (80.0ms)
+Completed 200 OK in 128ms (Views: 86.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at Wed Jan 26 02:06:26 +0500 2011
+  Processing by UploadsController#create as JSON
+  Parameters: {"_http_accept"=>"application/javascript", "Filename"=>"About Stacks.pdf", "folder"=>"/", "Upload"=>"Submit Query", "Filedata"=>#<File:/var/folders/VQ/VQlhDSakF8CxpD6koEI3P++++TI/-Tmp-/RackMultipart20110126-8730-7nvza7-0>}
+  [1m[36mSQL (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  ROLLBACK
+Completed   in 32ms
+
+ActionView::MissingTemplate (Missing template uploads/index with {:handlers=>[:builder, :rxml, :rjs, :rhtml, :erb], :locale=>[:en, :en], :formats=>[:json]} in view paths "/users/usmanasif/projects/pdf_uploader/app/views"):
+  app/controllers/uploads_controller.rb:27:in `create'
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Jan 26 02:06:50 +0500 2011
+  Processing by UploadsController#index as HTML
+  [1m[36mUpload Load (0.5ms)[0m  [1mSELECT `uploads`.* FROM `uploads`[0m
+Rendered uploads/_index.html.erb (0.8ms)
+Rendered uploads/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 31ms (Views: 21.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at Wed Jan 26 02:06:55 +0500 2011
+  Processing by UploadsController#create as JSON
+  Parameters: {"_http_accept"=>"application/javascript", "Filename"=>"About Stacks.pdf", "folder"=>"/", "Upload"=>"Submit Query", "Filedata"=>#<File:/var/folders/VQ/VQlhDSakF8CxpD6koEI3P++++TI/-Tmp-/RackMultipart20110126-8730-x45qh3-0>}
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mROLLBACK[0m
+Completed   in 23ms
+
+ActionView::MissingTemplate (Missing template uploads/new with {:handlers=>[:builder, :rxml, :rjs, :rhtml, :erb], :locale=>[:en, :en], :formats=>[:json]} in view paths "/users/usmanasif/projects/pdf_uploader/app/views"):
+  app/controllers/uploads_controller.rb:27:in `create'
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.8.7-p330/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-05-23 03:11:20 +0500
+
+Mysql::Error (Can't connect to local MySQL server through socket '/opt/local/var/run/mysql5/mysqld.sock' (2)):
+  
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.9ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.9ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (2.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (2.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateUploads (20110125201514)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uploaded_file_name" varchar(255), "uploaded_content_type" varchar(255), "uploaded_file_size" integer, "uploaded_updated_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110125201514')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("uploads")
+
+
+Started GET "/" for 127.0.0.1 at 2011-05-23 03:14:45 +0500
+  Processing by UploadsController#index as HTML
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUpload Load (0.2ms)[0m  SELECT "uploads".* FROM "uploads"
+Rendered uploads/_index.html.erb (2.2ms)
+Rendered uploads/index.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 319ms (Views: 105.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at 2011-05-23 03:14:55 +0500
+  Processing by UploadsController#create as JSON
+  Parameters: {"Filename"=>"DPV.pdf", "_http_accept"=>"application/javascript", "folder"=>"/", "Filedata"=>#<File:/var/folders/VQ/VQlhDSakF8CxpD6koEI3P++++TI/-Tmp-/RackMultipart20110523-39370-1l7zi7f>, "Upload"=>"Submit Query"}
+Completed   in 131ms
+
+ActionView::MissingTemplate (Missing template uploads/new with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:json], :locale=>[:en, :en]} in view paths "/Users/usmanasif/projects/pdf_uploader1/app/views"):
+  app/controllers/uploads_controller.rb:27:in `create'
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-05-23 03:16:26 +0500
+  Processing by UploadsController#index as HTML
+  [1m[36mUpload Load (0.5ms)[0m  [1mSELECT "uploads".* FROM "uploads"[0m
+Rendered uploads/_index.html.erb (2.0ms)
+Rendered uploads/index.html.erb within layouts/application (45.4ms)
+Completed 200 OK in 71ms (Views: 54.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at 2011-05-23 03:16:31 +0500
+  Processing by UploadsController#create as JSON
+  Parameters: {"Filename"=>"About Stacks.pdf", "folder"=>"/", "_http_accept"=>"application/javascript", "Filedata"=>#<File:/var/folders/VQ/VQlhDSakF8CxpD6koEI3P++++TI/-Tmp-/RackMultipart20110523-39370-190mdxc>, "Upload"=>"Submit Query"}
+Completed   in 21ms
+
+ActiveRecord::RecordInvalid (Validation failed: Uploaded file name must be set.):
+  app/controllers/uploads_controller.rb:20:in `create'
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.4ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.4ms)
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-05-23 03:17:11 +0500
+  Processing by UploadsController#index as HTML
+  [1m[35mUpload Load (0.4ms)[0m  SELECT "uploads".* FROM "uploads"
+Rendered uploads/_index.html.erb (2.2ms)
+Rendered uploads/index.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 59ms (Views: 45.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-05-23 03:17:50 +0500
+  Processing by UploadsController#index as HTML
+  [1m[36mUpload Load (1.1ms)[0m  [1mSELECT "uploads".* FROM "uploads"[0m
+Rendered uploads/_index.html.erb (6.9ms)
+Rendered uploads/index.html.erb within layouts/application (33.6ms)
+Completed 200 OK in 79ms (Views: 38.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at 2011-05-23 03:17:56 +0500
+  Processing by UploadsController#create as JSON
+  Parameters: {"Filename"=>"DPV.pdf", "folder"=>"/", "_http_accept"=>"application/javascript", "Filedata"=>#<File:/var/folders/VQ/VQlhDSakF8CxpD6koEI3P++++TI/-Tmp-/RackMultipart20110523-39370-1li6dy>, "Upload"=>"Submit Query"}
+  [1m[35mSQL (14.3ms)[0m  INSERT INTO "uploads" ("created_at", "updated_at", "uploaded_content_type", "uploaded_file_name", "uploaded_file_size", "uploaded_updated_at") VALUES ('2011-05-22 22:17:56.777432', '2011-05-22 22:17:56.777432', NULL, NULL, NULL, NULL)
+[paperclip] Saving attachments.
+Completed 200 OK in 160ms (Views: 1.9ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/uploads/1" for 127.0.0.1 at 2011-05-23 03:17:56 +0500
+  Processing by UploadsController#show as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mUpload Load (0.8ms)[0m  [1mSELECT "uploads".* FROM "uploads" WHERE ("uploads"."id" = 1) LIMIT 1[0m
+Completed   in 39ms
+
+ActionView::MissingTemplate (Missing template uploads/show with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:js, :"*/*"], :locale=>[:en, :en]} in view paths "/Users/usmanasif/projects/pdf_uploader1/app/views"):
+  
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-05-23 03:18:53 +0500
+  Processing by UploadsController#index as HTML
+  [1m[35mUpload Load (0.9ms)[0m  SELECT "uploads".* FROM "uploads"
+Rendered uploads/_index.html.erb (1.1ms)
+Rendered uploads/index.html.erb within layouts/application (31.4ms)
+Completed 200 OK in 59ms (Views: 43.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at 2011-05-23 03:18:59 +0500
+  Processing by UploadsController#create as JSON
+  Parameters: {"Filename"=>"About Stacks.pdf", "folder"=>"/", "_http_accept"=>"application/javascript", "Filedata"=>#<File:/var/folders/VQ/VQlhDSakF8CxpD6koEI3P++++TI/-Tmp-/RackMultipart20110523-39370-9m32ei>, "Upload"=>"Submit Query"}
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "uploads" ("created_at", "updated_at", "uploaded_content_type", "uploaded_file_name", "uploaded_file_size", "uploaded_updated_at") VALUES ('2011-05-22 22:18:59.540577', '2011-05-22 22:18:59.540577', NULL, NULL, NULL, NULL)[0m
+[paperclip] Saving attachments.
+Completed 200 OK in 44ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/uploads" for 127.0.0.1 at 2011-05-23 03:18:59 +0500
+  Processing by UploadsController#index as JS
+  [1m[35mUpload Load (2.3ms)[0m  SELECT "uploads".* FROM "uploads"
+Completed   in 64ms
+
+ActionView::MissingTemplate (Missing template uploads/index with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:js, :"*/*"], :locale=>[:en, :en]} in view paths "/Users/usmanasif/projects/pdf_uploader1/app/views"):
+  
+
+Rendered /Users/usmanasif/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.0.0.rc2/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-05-23 03:19:45 +0500
+  Processing by UploadsController#index as HTML
+  [1m[36mUpload Load (1.6ms)[0m  [1mSELECT "uploads".* FROM "uploads"[0m
+Rendered uploads/_index.html.erb (1.0ms)
+Rendered uploads/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 42ms (Views: 19.8ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at 2011-05-23 03:19:52 +0500
+  Processing by UploadsController#create as JSON
+  Parameters: {"Filename"=>"About Stacks.pdf", "folder"=>"/", "_http_accept"=>"application/javascript", "Filedata"=>#<File:/var/folders/VQ/VQlhDSakF8CxpD6koEI3P++++TI/-Tmp-/RackMultipart20110523-39370-cu7bba>, "Upload"=>"Submit Query"}
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "uploads" ("created_at", "updated_at", "uploaded_content_type", "uploaded_file_name", "uploaded_file_size", "uploaded_updated_at") VALUES ('2011-05-22 22:19:52.634087', '2011-05-22 22:19:52.634087', NULL, NULL, NULL, NULL)
+[paperclip] Saving attachments.
+Completed 406 Not Acceptable in 56ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-05-23 03:20:32 +0500
+  Processing by UploadsController#index as HTML
+  [1m[36mUpload Load (28.8ms)[0m  [1mSELECT "uploads".* FROM "uploads"[0m
+Rendered uploads/_index.html.erb (1.1ms)
+Rendered uploads/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 190ms (Views: 40.2ms | ActiveRecord: 28.8ms)
+
+
+Started POST "/uploads" for 127.0.0.1 at 2011-05-23 03:20:39 +0500
+  Processing by UploadsController#create as JSON
+  Parameters: {"Filename"=>"DPV.pdf", "folder"=>"/", "_http_accept"=>"application/javascript", "Filedata"=>#<File:/var/folders/VQ/VQlhDSakF8CxpD6koEI3P++++TI/-Tmp-/RackMultipart20110523-39370-1sb2yff>, "Upload"=>"Submit Query"}
+  [1m[35mSQL (93.4ms)[0m  INSERT INTO "uploads" ("created_at", "updated_at", "uploaded_content_type", "uploaded_file_name", "uploaded_file_size", "uploaded_updated_at") VALUES ('2011-05-22 22:20:39.498324', '2011-05-22 22:20:39.498324', NULL, NULL, NULL, NULL)
+[paperclip] Saving attachments.
+Completed 406 Not Acceptable in 187ms
